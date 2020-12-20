@@ -1,0 +1,11 @@
+{
+    "name": "mderrdx5341/console.command",
+    "description": "console command lib",
+    "type": "library",
+    "require": {},
+	"autoload": {
+	  "psr-4": {
+		  "Mderrdx5341\\Condole\\": "src/"
+		}
+	}
+}
