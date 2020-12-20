@@ -2,7 +2,7 @@
 
 namespace Mderrdx5341\Console;
 
-interface Command
+interface CommandInterface
 {
 	public function run();
 }
