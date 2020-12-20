@@ -5,7 +5,7 @@
     "require": {},
 	"autoload": {
 	  "psr-4": {
-		  "Mderrdx5341\\Condole\\": "src/"
+		  "Mderrdx5341\\Console\\": "src/"
 		}
 	}
 }

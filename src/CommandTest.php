@@ -1,6 +1,6 @@
 <?php
 
-namespace Mderrdx5341\Condole;
+namespace Mderrdx5341\Console;
 
 class CommandTest implements CommandInterface
 {
