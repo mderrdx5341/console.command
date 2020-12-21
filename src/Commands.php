@@ -4,13 +4,16 @@ namespace Mderrdx5341\Console;
 
 class Commands
 {
-	protected $dir;
 	protected $commands = [];
 
 	public function __construct($dir = '')
 	{
-		$this->dir = $dir;
-		$this->includeFiles($this->getFiles());
+		$c = new \ReflectionClass($this);
+		$libDir = str_replace($c->getShortName() . '.php', '', $c->getFileName());
+
+		$this->includeFiles($this->getFiles($libDir . 'Commands/' ));
+		$this->includeFiles($this->getFiles($dir));
+
 		$this->registerCommands();
 	}
 
@@ -45,13 +48,13 @@ class Commands
 		}
 	}
 
-	protected function getFiles()
+	protected function getFiles($dir)
 	{
 		$commands = [];
-		foreach (scandir($this->dir) as $file) {
-			if(!is_dir($this->dir . $file))
+		foreach (scandir($dir) as $file) {
+			if(!is_dir($dir . $file))
 			{
-				$commands[] = $this->dir . $file;
+				$commands[] = $dir . $file;
 			}
 		}
 
