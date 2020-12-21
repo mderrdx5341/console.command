@@ -29,3 +29,5 @@ $commands->run($GLOBALS['argv']); //Запуск обработки консол
 
 Класс команды должен реализовывать интерфейс 
 `use Mderrdx5341\Console\CommandInterface;`
+Пример реализации можно посмотреть в команде которая идет с библиотекой `lib_command`,
+которая находится в `vendor/mderrdx5341/mderrdx5341-console.command/src/Commands/LibCommand.php`
