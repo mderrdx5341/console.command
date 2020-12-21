@@ -52,7 +52,7 @@ class Commands
 	{
 		echo "Commands:\n";
 		foreach($this->commands as $command) {
-			echo "\t{$command->name()}\n";
+			echo "\t{$command->name()} - {$command->description()}\n";
 		}
 	}
 
