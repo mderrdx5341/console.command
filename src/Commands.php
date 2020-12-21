@@ -20,13 +20,44 @@ class Commands
 	public function run($args)
 	{
 		if (count($args) === 1) {
-			foreach($this->commands as $command) {
-				echo $command->name() . "\n";
-			}
+			$this->printCommandList();
 		}
 
 		if (count($args) > 1) {
-			$this->commands[$args[1]]->run();
+			$command = $args[1];
+			array_splice($args, 0, 2);
+			$args = $this->parseArgs($args);
+			$this->commands[$command]->run($args);
+		}
+	}
+
+	protected function parseArgs(Array $args)
+	{
+		//echo '<pre>'; var_dump($args); echo '</pre>';
+		$argsForCommand = [];
+		$paramsForCommand = [];
+		foreach($args as $arg) {
+			if (stripos($arg , '[') === 0) {
+				$param = str_replace(['[',']'], '', $arg);
+				list($param, $value) = explode('=', $param);
+				$paramsForCommand[$param][] = $value;
+			} else {
+				$arg = str_replace(['{','}'], '', $arg);
+				$argsForCommand[] = $arg;
+			}
+		}
+
+		return [
+			'args' => $argsForCommand,
+			'params' => $paramsForCommand
+		];
+	}
+
+	protected function printCommandList()
+	{
+		echo "Commands:\n";
+		foreach($this->commands as $command) {
+			echo "\t" . $command->name() . "\n";
 		}
 	}
 
