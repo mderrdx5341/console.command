@@ -1,3 +1,5 @@
+Загрузка библиотеки `composer.json`
+
 ```
 {
     "require": {
@@ -11,3 +13,19 @@
     ]
 }
 ```
+
+Подключение и использование
+
+
+```
+<?php
+include(__DIR__ . '/vendor/autoload.php');
+
+use Mderrdx5341\Console\Commands;
+
+$commands = new Commands(__DIR__ . '/Commands/'); //указание директории с классами комманды
+$commands->run($GLOBALS['argv']); //Запуск обработки консольных команд
+```
+
+Класс команды должен реализовывать интерфейс 
+`use Mderrdx5341\Console\CommandInterface;`
