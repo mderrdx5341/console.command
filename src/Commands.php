@@ -26,31 +26,9 @@ class Commands
 		if (count($args) > 1) {
 			$command = $args[1];
 			array_splice($args, 0, 2);
-			$args = $this->parseArgs($args);
-			$this->commands[$command]->run($args);
+			$parser = new ParserCommandLineArgs($args);
+			$this->commands[$command]->run($parser->getArgsAndParams());
 		}
-	}
-
-	protected function parseArgs(Array $args)
-	{
-		//echo '<pre>'; var_dump($args); echo '</pre>';
-		$argsForCommand = [];
-		$paramsForCommand = [];
-		foreach($args as $arg) {
-			if (stripos($arg , '[') === 0) {
-				$param = str_replace(['[',']'], '', $arg);
-				list($param, $value) = explode('=', $param);
-				$paramsForCommand[$param][] = $value;
-			} else {
-				$arg = str_replace(['{','}'], '', $arg);
-				$argsForCommand[] = $arg;
-			}
-		}
-
-		return [
-			'args' => $argsForCommand,
-			'params' => $paramsForCommand
-		];
 	}
 
 	protected function printCommandList()
