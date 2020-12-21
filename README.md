@@ -1,6 +1,6 @@
 Загрузка библиотеки `composer.json`
 
-```
+```json
 {
     "require": {
         "mderrdx5341/mderrdx5341-console.command": "dev-master"
@@ -17,7 +17,7 @@
 Подключение и использование
 
 
-```
+```php
 <?php
 include(__DIR__ . '/vendor/autoload.php');
 
