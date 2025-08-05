@@ -8,7 +8,7 @@
 	"repositories": [
         {
             "type": "git",
-            "url": "https://github.com/mderrdx5341/mderrdx5341-console.command.git"
+            "url": "https://github.com/mderrdx5341/console.command.git"
         }
     ]
 }
