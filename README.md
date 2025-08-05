@@ -3,7 +3,7 @@
 ```json
 {
     "require": {
-        "mderrdx5341/mderrdx5341-console.command": "dev-master"
+        "mderrdx5341/console.command": "dev-master"
     },
 	"repositories": [
         {
